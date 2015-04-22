@@ -1,0 +1,6 @@
+{% extends layout %}
+layout: {{ layout }} **layout
+{% block content %}
+layout2: {{ layout }} **layout2
+<h1>hello, world</h1>
+{% endblock content %}
