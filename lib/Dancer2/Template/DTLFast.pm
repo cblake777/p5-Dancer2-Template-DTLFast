@@ -1,6 +1,6 @@
 # ABSTRACT: DTL::Fast engine for Dancer2
 package Dancer2::Template::DTLFast;
-$Dancer2::Template::DTLFast::VERSION = '0.1';
+$Dancer2::Template::DTLFast::VERSION = '0.002';
 use strict;
 use warnings;
 
