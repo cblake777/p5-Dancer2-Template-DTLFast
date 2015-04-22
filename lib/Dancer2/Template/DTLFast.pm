@@ -12,6 +12,19 @@ use DTL::Fast qw(get_template);
 
 with 'Dancer2::Core::Role::Template';
 
+# The layout is handled by DTL::Fast by use of an "extends" tag, the name
+# of the layout is passed through to the template as a variable used within
+# the "extends" tag.
+#
+#	Example: 
+#		{% extends layout %}
+#
+# We override the apply_layout method from Dancer2::Core::Role::Template here 
+# to tell it to just return what apply_render has already processed.
+sub apply_layout {
+    return $_[1];
+}
+
 sub render {
 	my ( $self, $template, $tokens ) = @_;
 
