@@ -35,6 +35,15 @@ sub render {
 	my $config = $self->settings->{engines}{template}{DTLFast};
 	$config->{dirs} ||= [ $self->views ];
 
+	## Currently, the options passed in to the template are not sent on via dancer to the apply_renderer 
+	## method, only to the apply_layout method, which means it is current impossible to see during the 
+	## rendering of the template if the user has passed in an override for the layout. As such, if the
+	## user wants to take advantage of Dancer2's "layout" system and is wanting to use a custom layout
+	## for a single request, then they need to specify the name of the template as a token, not an 
+	## option, for it to be detected.
+	my $layout = $tokens->{layout} || $self->layout || $self->config->{layout};
+	$tokens->{layout} = $self->layout_dir . "/" . $self->_template_name($layout);
+
 	my $tpl = get_template(
 		$templateFile,
 		%$config,
