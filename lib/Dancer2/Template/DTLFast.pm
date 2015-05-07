@@ -42,7 +42,7 @@ sub render {
 	## for a single request, then they need to specify the name of the template as a token, not an 
 	## option, for it to be detected.
 	my $layout = $tokens->{layout} || $self->layout || $self->config->{layout};
-	$tokens->{layout} = $self->layout_dir . "/" . $self->_template_name($layout);
+	$tokens->{layout} = ($layout) ? $self->layout_dir . "/" . $self->_template_name($layout) : '';
 
 	my $tpl = get_template(
 		$templateFile,
