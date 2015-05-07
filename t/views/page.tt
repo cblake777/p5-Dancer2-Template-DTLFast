@@ -1,6 +1,4 @@
-{% extends layout %}
-layout: {{ layout }} **layout
+{% extends layout|default:"layouts/layout1.tt" %}
 {% block content %}
-layout2: {{ layout }} **layout2
 <h1>hello, world</h1>
 {% endblock content %}

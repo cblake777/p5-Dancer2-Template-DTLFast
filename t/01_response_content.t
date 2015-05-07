@@ -13,7 +13,7 @@ use HTTP::Request::Common;
 		},
 	};
 
-	get '/layout1' => sub { template 'page', { layout => 'layout1', title => 'layout 1' } };
+	get '/layout1' => sub { template 'page', { title => 'layout 1' } };
 	get '/layout2' => sub { template 'page', { layout => 'layout2', title => 'layout 2' } };
 }
 
